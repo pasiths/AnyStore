@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AnyStore
 {
-    public partial class Form1 : Form
+    public partial class frmAdminDashbord : Form
     {
-        public Form1()
+        public frmAdminDashbord()
         {
             InitializeComponent();
         }
