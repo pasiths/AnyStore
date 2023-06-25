@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnyStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnyStoreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminDashbord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +96,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="AnyStoreDataSet.xsc">
+      <DependentUpon>AnyStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AnyStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AnyStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AnyStoreDataSet.xss">
+      <DependentUpon>AnyStoreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
