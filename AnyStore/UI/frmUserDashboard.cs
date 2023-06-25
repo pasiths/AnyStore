@@ -30,5 +30,11 @@ namespace AnyStore
             frmPurchaseAndSales sales = new frmPurchaseAndSales();
             sales.Show();
         }
+
+        private void dealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDeaCust dac= new frmDeaCust();
+            dac.Show();
+        }
     }
 }
