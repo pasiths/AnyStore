@@ -67,25 +67,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AnyStoreDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmAdminDashbord.cs">
+    <Compile Include="UI\frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdminDashbord.Designer.cs">
-      <DependentUpon>frmAdminDashbord.cs</DependentUpon>
+    <Compile Include="UI\frmAdminDashboard.Designer.cs">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserDashborad.cs">
+    <Compile Include="UI\frmUserDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserDashborad.Designer.cs">
-      <DependentUpon>frmUserDashborad.cs</DependentUpon>
+    <Compile Include="UI\frmUserDashboard.Designer.cs">
+      <DependentUpon>frmUserDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdminDashbord.resx">
-      <DependentUpon>frmAdminDashbord.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmAdminDashboard.resx">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserDashborad.resx">
-      <DependentUpon>frmUserDashborad.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmUserDashboard.resx">
+      <DependentUpon>frmUserDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
