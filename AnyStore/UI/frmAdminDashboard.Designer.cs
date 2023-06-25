@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblSHead = new System.Windows.Forms.Label();
+            this.lblAppLName = new System.Windows.Forms.Label();
+            this.lblAppFName = new System.Windows.Forms.Label();
+            this.lblLoggedInUser = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFooter = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,14 +42,14 @@
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblLoggedInUser = new System.Windows.Forms.Label();
-            this.lblAppFName = new System.Windows.Forms.Label();
-            this.lblAppLName = new System.Windows.Forms.Label();
-            this.lblSHead = new System.Windows.Forms.Label();
+            this.frmUsers = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTop = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.frmUsers.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -62,6 +67,58 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1350, 729);
             this.panel2.TabIndex = 1;
+            // 
+            // lblSHead
+            // 
+            this.lblSHead.AutoSize = true;
+            this.lblSHead.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSHead.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.lblSHead.Location = new System.Drawing.Point(532, 367);
+            this.lblSHead.Name = "lblSHead";
+            this.lblSHead.Size = new System.Drawing.Size(314, 25);
+            this.lblSHead.TabIndex = 7;
+            this.lblSHead.Text = "Billing And Inventory Management";
+            // 
+            // lblAppLName
+            // 
+            this.lblAppLName.AutoSize = true;
+            this.lblAppLName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppLName.Location = new System.Drawing.Point(678, 330);
+            this.lblAppLName.Name = "lblAppLName";
+            this.lblAppLName.Size = new System.Drawing.Size(85, 37);
+            this.lblAppLName.TabIndex = 6;
+            this.lblAppLName.Text = "Store";
+            // 
+            // lblAppFName
+            // 
+            this.lblAppFName.AutoSize = true;
+            this.lblAppFName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppFName.Location = new System.Drawing.Point(613, 330);
+            this.lblAppFName.Name = "lblAppFName";
+            this.lblAppFName.Size = new System.Drawing.Size(69, 37);
+            this.lblAppFName.TabIndex = 5;
+            this.lblAppFName.Text = "ANY";
+            // 
+            // lblLoggedInUser
+            // 
+            this.lblLoggedInUser.AutoSize = true;
+            this.lblLoggedInUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedInUser.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblLoggedInUser.Location = new System.Drawing.Point(49, 43);
+            this.lblLoggedInUser.Name = "lblLoggedInUser";
+            this.lblLoggedInUser.Size = new System.Drawing.Size(137, 17);
+            this.lblLoggedInUser.TabIndex = 4;
+            this.lblLoggedInUser.Text = "Pasith Senevirathana";
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(13, 43);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(38, 17);
+            this.lblUser.TabIndex = 3;
+            this.lblUser.Text = "User:";
             // 
             // panel1
             // 
@@ -128,70 +185,49 @@
             this.transacToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.transacToolStripMenuItem.Text = "Transactions";
             // 
-            // lblUser
+            // frmUsers
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(13, 43);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(38, 17);
-            this.lblUser.TabIndex = 3;
-            this.lblUser.Text = "User:";
+            this.frmUsers.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.frmUsers.Controls.Add(this.panel3);
+            this.frmUsers.Location = new System.Drawing.Point(32, 80);
+            this.frmUsers.Name = "frmUsers";
+            this.frmUsers.Size = new System.Drawing.Size(1286, 585);
+            this.frmUsers.TabIndex = 9;
+            this.frmUsers.Visible = false;
             // 
-            // lblLoggedInUser
+            // panel3
             // 
-            this.lblLoggedInUser.AutoSize = true;
-            this.lblLoggedInUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedInUser.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblLoggedInUser.Location = new System.Drawing.Point(49, 43);
-            this.lblLoggedInUser.Name = "lblLoggedInUser";
-            this.lblLoggedInUser.Size = new System.Drawing.Size(137, 17);
-            this.lblLoggedInUser.TabIndex = 4;
-            this.lblLoggedInUser.Text = "Pasith Senevirathana";
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Controls.Add(this.lblTop);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1286, 41);
+            this.panel3.TabIndex = 0;
             // 
-            // lblAppFName
+            // lblTop
             // 
-            this.lblAppFName.AutoSize = true;
-            this.lblAppFName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppFName.Location = new System.Drawing.Point(613, 330);
-            this.lblAppFName.Name = "lblAppFName";
-            this.lblAppFName.Size = new System.Drawing.Size(69, 37);
-            this.lblAppFName.TabIndex = 5;
-            this.lblAppFName.Text = "ANY";
+            this.lblTop.AutoSize = true;
+            this.lblTop.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTop.Location = new System.Drawing.Point(619, 10);
+            this.lblTop.Name = "lblTop";
+            this.lblTop.Size = new System.Drawing.Size(48, 21);
+            this.lblTop.TabIndex = 0;
+            this.lblTop.Text = "USER";
             // 
-            // lblAppLName
-            // 
-            this.lblAppLName.AutoSize = true;
-            this.lblAppLName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppLName.Location = new System.Drawing.Point(678, 330);
-            this.lblAppLName.Name = "lblAppLName";
-            this.lblAppLName.Size = new System.Drawing.Size(85, 37);
-            this.lblAppLName.TabIndex = 6;
-            this.lblAppLName.Text = "Store";
-            // 
-            // lblSHead
-            // 
-            this.lblSHead.AutoSize = true;
-            this.lblSHead.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSHead.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            this.lblSHead.Location = new System.Drawing.Point(532, 367);
-            this.lblSHead.Name = "lblSHead";
-            this.lblSHead.Size = new System.Drawing.Size(314, 25);
-            this.lblSHead.TabIndex = 7;
-            this.lblSHead.Text = "Billing And Inventory Management";
-            // 
-            // frmAdminDashbord
+            // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.frmUsers);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.MinimumSize = new System.Drawing.Size(1366, 768);
-            this.Name = "frmAdminDashbord";
+            this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.panel2.ResumeLayout(false);
@@ -200,6 +236,9 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.frmUsers.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -220,6 +259,9 @@
         private System.Windows.Forms.Label lblSHead;
         private System.Windows.Forms.Label lblAppLName;
         private System.Windows.Forms.Label lblAppFName;
+        private System.Windows.Forms.Panel frmUsers;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTop;
     }
 }
 
