@@ -67,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AnyStoreDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BLL\userBLL.cs" />
     <Compile Include="UI\frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +138,7 @@
   <ItemGroup>
     <None Include="Resources\Close_red.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
