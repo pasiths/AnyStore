@@ -16,5 +16,10 @@ namespace AnyStore.UI
         {
             InitializeComponent();
         }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
