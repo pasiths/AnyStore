@@ -71,6 +71,7 @@
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\DeaCusBLL.cs" />
     <Compile Include="BLL\productsBLL.cs" />
+    <Compile Include="BLL\tranactionsBLL.cs" />
     <Compile Include="BLL\userBLL.cs" />
     <Compile Include="DAL\userDAL.cs" />
     <Compile Include="UI\frmAdminDashboard.cs">
