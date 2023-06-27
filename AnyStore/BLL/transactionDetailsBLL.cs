@@ -10,9 +10,9 @@ namespace AnyStore.BLL
     {
         public int id { get; set; }
         public int product_id { get; set; }
-        public double rate { get; set; }
-        public double qty { get; set; }
-        public double total { get; set; }
+        public decimal rate { get; set; }
+        public decimal qty { get; set; }
+        public decimal total { get; set; }
         public int dea_cust_id { get; set; }
         public DateTime added_date { get; set; }
         public int added_by { get; set; }
