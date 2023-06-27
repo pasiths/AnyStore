@@ -12,8 +12,8 @@ namespace AnyStore.BLL
         public string name { get; set; }
         public int category { get; set; }
         public string description { get; set; }
-        public double rate { get; set; }
-        public double qty { get; set; }
+        public decimal rate { get; set; }
+        public decimal qty { get; set; }
         public DateTime added_date { get; set; }
         public int added_by { get; set; }
     }
