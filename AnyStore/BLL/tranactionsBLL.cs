@@ -9,11 +9,12 @@ namespace AnyStore.BLL
     internal class tranactionsBLL
     {
         public int id { get; set; }
+        public string type { get; set; }
         public int dea_cust_id { get; set; }
-        public double grandTotal{get; set; }
+        public decimal grandTotal{get; set; }
         public DateTime transaction_date { get; set; }
-        public double tax { get; set; }
-        public double discount { get; set; }
+        public decimal tax { get; set; }
+        public decimal discount { get; set; }
         public int added_by { get; set; }
     }
 }
