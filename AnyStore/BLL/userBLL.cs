@@ -14,6 +14,7 @@ namespace AnyStore.BLL
         public string email { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+        public string contact { get; set; }
         public string address { get; set; }
         public string gender { get; set; }
         public string user_type { get; set; }
