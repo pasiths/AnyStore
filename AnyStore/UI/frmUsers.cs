@@ -76,11 +76,13 @@ namespace AnyStore.UI
 
        private void clear()
         {
-            txtFirstName.Clear();
+            txtUserID.Text = string.Empty;
+            txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
+            txtEmail.Text = string.Empty;
             txtUsername.Text = string.Empty;
-            txtPassword.Clear();
-            txtContact.Clear();
+            txtPassword.Text = string.Empty;
+            txtContact.Text = string.Empty;
             txtAddress.Text = string.Empty;
             cmbGender.SelectedIndex = -1;
             cmbUserType.SelectedIndex=-1;
