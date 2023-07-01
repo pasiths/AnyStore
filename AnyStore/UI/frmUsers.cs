@@ -57,5 +57,10 @@ namespace AnyStore.UI
                 MessageBox.Show("Failed To Add New User", "Fail");
             }
         }
+
+        private void pictureBoxClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
