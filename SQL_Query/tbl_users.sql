@@ -13,5 +13,6 @@ address text NOT NULL,
 gender varchar(10) NOT NULL,
 user_type varchar(15) NOT NULL,
 added_date datetime NOT NULL,
-added_by int NOT NULL
+added_by int NOT NULL,
+status int NOT NULL
 );
