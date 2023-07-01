@@ -65,5 +65,11 @@ namespace AnyStore.UI
         {
             this.Hide();
         }
+
+        private void frmUsers_Load(object sender, EventArgs e)
+        {
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
+        }
     }
 }
