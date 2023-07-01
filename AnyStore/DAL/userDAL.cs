@@ -154,5 +154,46 @@ namespace AnyStore.DAL
             return isSuccess;
         }
         #endregion
+
+        #region Delete data in Database
+        public bool Delete(userBLL u)
+        {
+            bool isSuccess = false;
+
+            SqlConnection con = new SqlConnection(myConnection);
+
+            try
+            {
+                string sql = "UPDATE tbl_users SET status=@status WHERE user_id=@id";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@id", u.id);
+                cmd.Parameters.AddWithValue("@status", u.status);
+
+                con.Open();
+
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return isSuccess;
+        }
+        #endregion
     }
 }
