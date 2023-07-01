@@ -50,11 +50,13 @@ namespace AnyStore.UI
             {
                 //Data Successfully Inserted
                 MessageBox.Show("User Successfuly Created", "Success");
+                clear();
             }
             else
             {
                 //Failed to insert data
                 MessageBox.Show("Failed To Add New User", "Fail");
+                clear();
             }
             //Refreshing Data Grid View
             DataTable dt = dal.Select();
