@@ -114,7 +114,7 @@ namespace AnyStore.DAL
 
             try
             {
-                string sql = "UPDATE tbl_users SET first_name=@first_name,last_name=@last_name,email=@email,username=@username,password=@password,address=@address,gender=@gender,user_type=@user_type,added_date=@added_date,added_by=@added_by,status=@status WHERE user_id=@id";
+                string sql = "UPDATE tbl_users SET first_name=@first_name,last_name=@last_name,email=@email,username=@username,password=@password,contact=@contact,address=@address,gender=@gender,user_type=@user_type,added_date=@added_date,added_by=@added_by,status=@status WHERE user_id=@id";
                 SqlCommand cmd=new SqlCommand(sql, con);
 
                 cmd.Parameters.AddWithValue("@first_name", u.first_name);
@@ -122,6 +122,7 @@ namespace AnyStore.DAL
                 cmd.Parameters.AddWithValue("@email", u.email);
                 cmd.Parameters.AddWithValue("@username", u.username);
                 cmd.Parameters.AddWithValue("@password", u.first_name);
+                cmd.Parameters.AddWithValue("@contact", u.contact);
                 cmd.Parameters.AddWithValue("@address", u.address);
                 cmd.Parameters.AddWithValue("@gender", u.gender);
                 cmd.Parameters.AddWithValue("@user_type", u.user_type);
