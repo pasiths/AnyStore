@@ -30,6 +30,32 @@ namespace AnyStore.UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Getting Data From UI
+            u.first_name=txtFirstName.Text;
+            u.last_name=txtLastName.Text;
+            u.email=txtEmail.Text;
+            u.username=txtUsername.Text;
+            u.password=txtPassword.Text;
+            u.contact=txtContact.Text;
+            u.address=txtAddress.Text;
+            u.gender = cmbGender.Text;
+            u.user_type = cmbUserType.Text;
+            u.added_date = DateTime.Now;
+            u.added_by = 1;
+            u.status = 1;
+
+            //Inserting Data Into Database
+            bool success=dal.Insert(u);
+            //If the data is successfully inserted then the value of success will be true else it will be false
+            if (success == true)
+            {
+                //Data Successfully Inserted
+                MessageBox.Show("User Successfuly Created", "Success");
+            }
+            else
+            {
+                //Failed to insert data
+                MessageBox.Show("Failed To Add New User", "Fail");
+            }
         }
     }
 }
