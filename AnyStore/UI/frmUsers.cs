@@ -87,5 +87,21 @@ namespace AnyStore.UI
             cmbGender.SelectedIndex = -1;
             cmbUserType.SelectedIndex=-1;
         }
+
+        private void dgvUsers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Get the index of particular row
+            int rowIndex = e.RowIndex;
+            txtUserID.Text = dgvUsers.Rows[rowIndex].Cells[0].Value.ToString();
+            txtFirstName.Text = dgvUsers.Rows[rowIndex].Cells[1].Value.ToString();
+            txtLastName.Text = dgvUsers.Rows[rowIndex].Cells[2].Value.ToString();
+            txtEmail.Text = dgvUsers.Rows[rowIndex].Cells[3].Value.ToString();
+            txtUsername.Text = dgvUsers.Rows[rowIndex].Cells[4].Value.ToString();
+            txtPassword.Text = dgvUsers.Rows[rowIndex].Cells[5].Value.ToString();
+            txtContact.Text = dgvUsers.Rows[rowIndex].Cells[6].Value.ToString();
+            txtAddress.Text = dgvUsers.Rows[rowIndex].Cells[7].Value.ToString();
+            cmbGender.Text = dgvUsers.Rows[rowIndex].Cells[8].Value.ToString();
+            cmbUserType.Text = dgvUsers.Rows[rowIndex].Cells[9].Value.ToString();
+        }
     }
 }
