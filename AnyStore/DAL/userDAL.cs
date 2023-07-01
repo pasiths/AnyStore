@@ -17,7 +17,7 @@ namespace AnyStore.DAL
         static string myConnection = ConfigurationManager.ConnectionStrings["AnyStore"].ConnectionString;
         #endregion
 
-        #region SelectData From Database
+        #region Select Data From Database
         public DataTable Select()
         {
             //Static Method To Connect Database
