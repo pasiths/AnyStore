@@ -17,7 +17,7 @@ namespace AnyStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUserDashboard());
+            Application.Run(new frmAdminDashboard());
         }
     }
 }
