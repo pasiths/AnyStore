@@ -56,6 +56,9 @@ namespace AnyStore.UI
                 //Failed to insert data
                 MessageBox.Show("Failed To Add New User", "Fail");
             }
+            //Refreshing Data Grid View
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
         }
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
