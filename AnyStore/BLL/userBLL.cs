@@ -20,5 +20,6 @@ namespace AnyStore.BLL
         public string user_type { get; set; }
         public DateTime added_date { get; set; }
         public int added_by { get; set; }
+        public int status { get; set; }
     }
 }
