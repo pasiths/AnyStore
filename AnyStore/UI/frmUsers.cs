@@ -71,5 +71,17 @@ namespace AnyStore.UI
             DataTable dt = dal.Select();
             dgvUsers.DataSource = dt;
         }
+
+       private void clear()
+        {
+            txtFirstName.Clear();
+            txtLastName.Text = string.Empty;
+            txtUsername.Text = string.Empty;
+            txtPassword.Clear();
+            txtContact.Clear();
+            txtAddress.Text = string.Empty;
+            cmbGender.SelectedIndex = -1;
+            cmbUserType.SelectedIndex=-1;
+        }
     }
 }
