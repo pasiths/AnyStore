@@ -170,7 +170,6 @@ namespace AnyStore.DAL
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 cmd.Parameters.AddWithValue("@id", u.id);
-                cmd.Parameters.AddWithValue("@status", u.status);
 
                 con.Open();
 
