@@ -41,7 +41,8 @@ namespace AnyStore.UI
             u.user_type = cmbUserType.Text;
             u.added_date = DateTime.Now;
             u.added_by = 1;
-            u.status = 1;
+            //u.status = 1;
+            u.modify_date= DateTime.Now;
 
             //Inserting Data Into Database
             bool success=dal.Insert(u);
