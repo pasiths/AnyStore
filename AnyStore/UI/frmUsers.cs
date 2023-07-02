@@ -103,5 +103,40 @@ namespace AnyStore.UI
             cmbGender.Text = dgvUsers.Rows[rowIndex].Cells[8].Value.ToString();
             cmbUserType.Text = dgvUsers.Rows[rowIndex].Cells[9].Value.ToString();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //Get the values from USerr UI
+            u.id=Convert.ToInt32(txtUserID.Text);
+            u.first_name=txtFirstName.Text;
+            u.last_name=txtLastName.Text;
+            u.email=txtEmail.Text;
+            u.username=txtUsername.Text;
+            u.password=txtPassword.Text;
+            u.contact=txtContact.Text;
+            u.address=txtAddress.Text;
+            u.gender = cmbGender.Text;
+            u.user_type = cmbUserType.Text;
+            u.modify_date = DateTime.Now;
+            u.added_by = 1;
+
+            //Updating Data into database
+            bool success=dal.Update(u);
+            //if data is updated successfully then the value of success will be true else it will be false
+            if (success == true)
+            {
+                //Data Update Successfully
+                MessageBox.Show("User Successfully Updated", "Success");
+                clear();
+            }
+            else
+            {
+                //failed to update user
+                MessageBox.Show("Failed to Update User", "Fail");
+            }
+            //Refreshing Data Grid viwe
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
+        }
     }
 }

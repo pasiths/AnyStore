@@ -166,7 +166,7 @@ namespace AnyStore.DAL
 
             try
             {
-                string sql = "UPDATE tbl_users SET status=@status WHERE user_id=@id";
+                string sql = "DELETE FROM tbl_users WHERE id=@id";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 cmd.Parameters.AddWithValue("@id", u.id);
