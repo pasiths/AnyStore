@@ -60,7 +60,7 @@ namespace AnyStore.DAL
 
             try
             {
-                String sql = "INSERT INTO tbl_users(first_name,last_name,email,username,password,contact,address,gender,user_type,added_date,added_by,status) VALUES(@first_name,@last_name,@email,@username,@password,@contact,@address,@gender,@user_type,@added_date,@added_by,@status)";
+                String sql = "INSERT INTO tbl_users(first_name,last_name,email,username,password,contact,address,gender,user_type,added_date,added_by,modify_date) VALUES(@first_name,@last_name,@email,@username,@password,@contact,@address,@gender,@user_type,@added_date,@added_by,@modify_date)";
                 SqlCommand cmd=new SqlCommand(sql, con);
 
                 cmd.Parameters.AddWithValue("@first_name", u.first_name);
@@ -74,7 +74,7 @@ namespace AnyStore.DAL
                 cmd.Parameters.AddWithValue("@user_type", u.user_type);
                 cmd.Parameters.AddWithValue("@added_date", u.added_date);
                 cmd.Parameters.AddWithValue("@added_by", u.added_by);
-                cmd.Parameters.AddWithValue("@status", u.status);
+                cmd.Parameters.AddWithValue("@modify_date", u.modify_date);
 
                 con.Open();
 
@@ -114,7 +114,7 @@ namespace AnyStore.DAL
 
             try
             {
-                string sql = "UPDATE tbl_users SET first_name=@first_name,last_name=@last_name,email=@email,username=@username,password=@password,contact=@contact,address=@address,gender=@gender,user_type=@user_type,added_date=@added_date,added_by=@added_by,status=@status WHERE user_id=@id";
+                string sql = "UPDATE tbl_users SET first_name=@first_name,last_name=@last_name,email=@email,username=@username,password=@password,contact=@contact,address=@address,gender=@gender,user_type=@user_type,added_by=@added_by,modify_date=@modify_date WHERE id=@id";
                 SqlCommand cmd=new SqlCommand(sql, con);
 
                 cmd.Parameters.AddWithValue("@first_name", u.first_name);
@@ -126,10 +126,10 @@ namespace AnyStore.DAL
                 cmd.Parameters.AddWithValue("@address", u.address);
                 cmd.Parameters.AddWithValue("@gender", u.gender);
                 cmd.Parameters.AddWithValue("@user_type", u.user_type);
-                cmd.Parameters.AddWithValue("@added_date", u.added_date);
+                //cmd.Parameters.AddWithValue("@added_date", u.added_date);
                 cmd.Parameters.AddWithValue("@added_by", u.added_by);
                 cmd.Parameters.AddWithValue("@id", u.id);
-                cmd.Parameters.AddWithValue("@status", u.status);
+                cmd.Parameters.AddWithValue("@modify_date", u.modify_date);
 
                 con.Open();
 
