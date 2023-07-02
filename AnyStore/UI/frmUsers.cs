@@ -139,5 +139,28 @@ namespace AnyStore.UI
             DataTable dt = dal.Select();
             dgvUsers.DataSource = dt;
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Getting User ID from Form
+            u.id=Convert.ToInt32(txtUserID.Text);
+            
+            bool success=dal.Delete(u);
+            //if data is deleted then the value of sucess will be true else it will be false
+            if (success == true)
+            {
+                //User Deleted Successfully
+                MessageBox.Show("User Deleted Successfully","Success");
+                clear();
+            }
+            else
+            {
+                //Failed to Deleted
+                MessageBox.Show("Failed to Delete user","Fail");
+            }
+            //Refreshing Data Grid viwe
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
+        }
     }
 }
