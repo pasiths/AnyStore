@@ -15,7 +15,7 @@ namespace AnyStore.DAL
     {
         #region Connection String 
         //Static String to Connect Database
-        static string myconnectionstring = ConfigurationManager.ConnectionStrings["AnyStore"].ConnectionString;
+        static string myConnection = ConfigurationManager.ConnectionStrings["AnyStore"].ConnectionString;
         #endregion
 
         #region
@@ -25,7 +25,7 @@ namespace AnyStore.DAL
             bool isSuccess = false;
 
             //Connecting to Database
-            SqlConnection con=new SqlConnection(myconnectionstring);
+            SqlConnection con=new SqlConnection(myConnection);
 
             try
             {
