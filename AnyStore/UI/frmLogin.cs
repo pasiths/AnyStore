@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AnyStore.BLL;
+using AnyStore.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +19,17 @@ namespace AnyStore.UI
             InitializeComponent();
         }
 
+        loginBLL l=new loginBLL();
+        loginDAL dal= new loginDAL();
+
         private void pboxClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
