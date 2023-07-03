@@ -13,5 +13,6 @@ namespace AnyStore.DAL
         //Static String to Connect Database
         static string myconnectionstring = ConfigurationManager.ConnectionStrings["AnyStore"].ConnectionString;
         #endregion
+
     }
 }
