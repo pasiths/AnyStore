@@ -16,5 +16,10 @@ namespace AnyStore.UI
         {
             InitializeComponent();
         }
+
+        private void pboxClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

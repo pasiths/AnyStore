@@ -164,6 +164,7 @@
             this.pboxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxClose.TabIndex = 4;
             this.pboxClose.TabStop = false;
+            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
             // 
             // frmLogin
             // 
