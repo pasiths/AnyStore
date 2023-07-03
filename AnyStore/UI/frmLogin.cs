@@ -29,7 +29,22 @@ namespace AnyStore.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            l.username = txtUsername.Text;
+            l.password = txtPassword.Text;
+            l.user_type = cmbUserType.Text;
 
+            //Checking the login credentials
+            bool sucess = dal.loginCheck(l);
+            if (sucess == true)
+            {
+                //login successfull
+                MessageBox.Show("Login Successful", "Success");
+            }
+            else
+            {
+                //Login Failed
+                MessageBox.Show("Login Failed. Try Again", "Fail");
+            }
         }
     }
 }
