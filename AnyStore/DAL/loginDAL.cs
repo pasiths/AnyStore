@@ -30,7 +30,7 @@ namespace AnyStore.DAL
             try
             {
                 //Sql query to check login
-                string sql = "SELECT tbl_users WHERE username=@username AND password=@password AND user_type=@user_type";
+                string sql = "SELECT * FROM tbl_users WHERE username=@username AND password=@password AND user_type=@user_type";
 
                 //Creating SQL Command to pass value
                 SqlCommand cmd = new SqlCommand(sql, con);
