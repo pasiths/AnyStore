@@ -24,7 +24,7 @@ namespace AnyStore.UI
 
         private void pboxClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
