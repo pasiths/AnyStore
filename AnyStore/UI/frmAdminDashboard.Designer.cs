@@ -40,12 +40,12 @@
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dealerAndCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frmUsers = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTop = new System.Windows.Forms.Label();
-            this.dealerAndCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -178,6 +178,13 @@
             this.productsToolStripMenuItem.Text = "Products";
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
             // 
+            // dealerAndCustomerToolStripMenuItem
+            // 
+            this.dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
+            this.dealerAndCustomerToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
+            this.dealerAndCustomerToolStripMenuItem.Text = "Dealer and Customer";
+            this.dealerAndCustomerToolStripMenuItem.Click += new System.EventHandler(this.dealerAndCustomerToolStripMenuItem_Click);
+            // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
@@ -220,13 +227,6 @@
             this.lblTop.TabIndex = 0;
             this.lblTop.Text = "USER";
             // 
-            // dealerAndCustomerToolStripMenuItem
-            // 
-            this.dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
-            this.dealerAndCustomerToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
-            this.dealerAndCustomerToolStripMenuItem.Text = "Dealer and Customer";
-            this.dealerAndCustomerToolStripMenuItem.Click += new System.EventHandler(this.dealerAndCustomerToolStripMenuItem_Click);
-            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +242,7 @@
             this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAdminDashboard_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
