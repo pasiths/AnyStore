@@ -39,6 +39,34 @@ namespace AnyStore.UI
             {
                 //login successfull
                 MessageBox.Show("Login Successful", "Success");
+                //Need to open Respective Forms based on User type
+                switch (l.user_type)
+                {
+                    case "Admin":
+                        {
+                            //Display Admin Dashboard
+                            frmAdminDashboard admin = new frmAdminDashboard();
+                            admin.Show();
+                            this.Hide();
+                        }
+                        break;
+
+                    case "User":
+                        {
+                            //Display User Dashboard
+                            frmUserDashboard user = new frmUserDashboard();
+                            user.Show();
+                            this.Hide();
+                        }
+                        break;
+
+                    default:
+                        {
+                            //Display an error message
+                            MessageBox.Show("Invalid User Type.");
+                        }
+                        break;
+                }
             }
             else
             {
