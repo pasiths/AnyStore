@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="BLL\categoriesBLL.cs" />
     <Compile Include="BLL\DeaCusBLL.cs" />
+    <Compile Include="BLL\loginBLL.cs" />
     <Compile Include="BLL\productsBLL.cs" />
     <Compile Include="BLL\tranactionsBLL.cs" />
     <Compile Include="BLL\transactionDetailsBLL.cs" />
