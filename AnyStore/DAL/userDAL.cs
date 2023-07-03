@@ -196,5 +196,40 @@ namespace AnyStore.DAL
             return isSuccess;
         }
         #endregion
+
+        #region Search User on Database using Keywords
+        public DataTable Search(string keywords)
+        {
+            //Static Method To Connect Database
+            SqlConnection con = new SqlConnection(myConnection);
+            //To Hold The Data From Database
+            DataTable dt = new DataTable();
+            try
+            {
+                //SQL Query To Get Data From Database
+                String sql = "SELECT * FROM tbl_users WHERE id LIKE '%"+keywords+ "%' OR first_name LIKE '%" + keywords+ "%' OR last_name LIKE '%" + keywords+ "%' OR username LIKE '%" + keywords+"%' ";
+                //For Executing Command
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //Getting Data From Database
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Database Connection Open
+                con.Open();
+                //Fill Data In Our Datatable
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                //Throw Message if any error occurs
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //Closing Connection
+                con.Close();
+            }
+            //Return the value in DataTable
+            return dt;
+        }
+        #endregion
     }
 }
