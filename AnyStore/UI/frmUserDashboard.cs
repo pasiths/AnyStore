@@ -36,5 +36,12 @@ namespace AnyStore
             frmDeaCust dac= new frmDeaCust();
             dac.Show();
         }
+
+        private void frmUserDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.Show();
+            this.Hide();
+        }
     }
 }
