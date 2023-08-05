@@ -18,7 +18,7 @@ namespace AnyStore.DAL
         static string myConnection = ConfigurationManager.ConnectionStrings["AnyStore"].ConnectionString;
         #endregion
 
-        #region
+        #region login info check
         public bool loginCheck(loginBLL l)
         {
             //Create a boolean variable and set its value to false and return it
