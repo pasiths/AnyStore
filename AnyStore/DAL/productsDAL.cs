@@ -85,7 +85,7 @@ namespace AnyStore.DAL
             SqlConnection con = new SqlConnection(myconnection);
             try
             {
-                string query = "Update tbl_products Set name=@name,category=@category,description=@description,rate=@rate,qty=@qty,added_date=@added_date,added_by=@added_by Where id=@id";
+                string query = "Update tbl_products Set name=@name,category=@category,description=@description,rate=@rate,added_date=@added_date,added_by=@added_by Where id=@id";
                 SqlCommand cmd= new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@name", p.name);
                 cmd.Parameters.AddWithValue("@category", p.category);
@@ -146,6 +146,41 @@ namespace AnyStore.DAL
                 con.Close();
             }
             return isSuccess;
+        }
+        #endregion
+
+        #region Search User on Database using Keywords
+        public DataTable Search(string keywords)
+        {
+            //Static Method To Connect Database
+            SqlConnection con = new SqlConnection(myconnection);
+            //To Hold The Data From Database
+            DataTable dt = new DataTable();
+            try
+            {
+                //SQL Query To Get Data From Database
+                String sql = "SELECT * FROM tbl_products WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR category LIKE '%" + keywords + "%' ";
+                //For Executing Command
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //Getting Data From Database
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Database Connection Open
+                con.Open();
+                //Fill Data In Our Datatable
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                //Throw Message if any error occurs
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //Closing Connection
+                con.Close();
+            }
+            //Return the value in DataTable
+            return dt;
         }
         #endregion
     }

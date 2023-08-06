@@ -10,7 +10,7 @@ namespace AnyStore.BLL
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int category { get; set; }
+        public string category { get; set; }
         public string description { get; set; }
         public decimal rate { get; set; }
         public decimal qty { get; set; }
