@@ -106,9 +106,8 @@
             this.lblLoggedInUser.Location = new System.Drawing.Point(65, 53);
             this.lblLoggedInUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoggedInUser.Name = "lblLoggedInUser";
-            this.lblLoggedInUser.Size = new System.Drawing.Size(176, 23);
+            this.lblLoggedInUser.Size = new System.Drawing.Size(0, 23);
             this.lblLoggedInUser.TabIndex = 4;
-            this.lblLoggedInUser.Text = "Pasith Senevirathana";
             // 
             // lblUser
             // 
@@ -127,7 +126,7 @@
             this.panel1.Controls.Add(this.lblFooter);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 845);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1797, 52);
             this.panel1.TabIndex = 1;
@@ -156,7 +155,7 @@
             this.transacToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1797, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1797, 30);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStripTop";
             // 
@@ -208,7 +207,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1815, 934);
             this.MinimumSize = new System.Drawing.Size(1815, 934);
@@ -216,6 +215,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAdminDashboard_FormClosed);
+            this.Load += new System.EventHandler(this.frmAdminDashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
