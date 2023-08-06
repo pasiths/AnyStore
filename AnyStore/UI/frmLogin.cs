@@ -29,9 +29,9 @@ namespace AnyStore.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            l.username = txtUsername.Text;
-            l.password = txtPassword.Text;
-            l.user_type = cmbUserType.Text;
+            l.username = txtUsername.Text.Trim();
+            l.password = txtPassword.Text.Trim();
+            l.user_type = cmbUserType.Text.Trim();
 
             //Checking the login credentials
             bool sucess = dal.loginCheck(l);
