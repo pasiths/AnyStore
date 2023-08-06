@@ -121,6 +121,7 @@
             this.btnDelete.TabIndex = 53;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -134,6 +135,7 @@
             this.btnUpdate.TabIndex = 52;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -158,6 +160,7 @@
             this.dgvCategories.RowHeadersWidth = 51;
             this.dgvCategories.Size = new System.Drawing.Size(727, 321);
             this.dgvCategories.TabIndex = 50;
+            this.dgvCategories.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCategories_RowHeaderMouseClick);
             // 
             // txtSearch
             // 
@@ -168,6 +171,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(593, 29);
             this.txtSearch.TabIndex = 49;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // txtCategoryID
             // 
@@ -257,6 +261,7 @@
             this.Name = "frmCategories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categories";
+            this.Load += new System.EventHandler(this.frmCategories_Load);
             this.pnlCategories.ResumeLayout(false);
             this.pnlCategories.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace AnyStore.DAL
             SqlConnection con = new SqlConnection(myconnection);
             try
             {
-                string sql = "Insert Into tbl_products (title,description,added_date,added_by) Values (@title,@description,@added_date,@added_by)";
+                string sql = "Insert Into tbl_categories (title,description,added_date,added_by) Values (@title,@description,@added_date,@added_by)";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@title", c.title);
                 cmd.Parameters.AddWithValue("@description", c.description);
@@ -82,7 +83,7 @@ namespace AnyStore.DAL
             SqlConnection con = new SqlConnection(myconnection);
             try
             {
-                string query = "Update tbl_products Set title=@title,description=@description,added_date=@added_date,added_by=@added_by Where id=@id";
+                string query = "Update tbl_categories Set title=@title,description=@description,added_date=@added_date,added_by=@added_by Where id=@id";
                 SqlCommand cmd= new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@title", c.title);
                 cmd.Parameters.AddWithValue("@description", c.description);
@@ -117,7 +118,7 @@ namespace AnyStore.DAL
             SqlConnection con=new SqlConnection(myconnection);
             try
             {
-                string sql = "Delete From tbl_products Where id=@id";
+                string sql = "Delete From tbl_categories Where id=@id";
                 SqlCommand cmd=new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@id", c.id);
                 con.Open();
@@ -140,6 +141,41 @@ namespace AnyStore.DAL
                 con.Close();
             }
             return isSuccess;
+        }
+        #endregion
+
+        #region Search User on Database using Keywords
+        public DataTable Search(string keywords)
+        {
+            //Static Method To Connect Database
+            SqlConnection con = new SqlConnection(myconnection);
+            //To Hold The Data From Database
+            DataTable dt = new DataTable();
+            try
+            {
+                //SQL Query To Get Data From Database
+                String sql = "SELECT * FROM tbl_categories WHERE id LIKE '%" + keywords + "%' OR title LIKE '%" + keywords + "%' OR description LIKE '%" + keywords + "%' ";
+                //For Executing Command
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //Getting Data From Database
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //Database Connection Open
+                con.Open();
+                //Fill Data In Our Datatable
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                //Throw Message if any error occurs
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //Closing Connection
+                con.Close();
+            }
+            //Return the value in DataTable
+            return dt;
         }
         #endregion
     }

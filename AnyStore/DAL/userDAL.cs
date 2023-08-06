@@ -246,7 +246,7 @@ namespace AnyStore.DAL
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    u.id = int.Parse(dt.Rows[0].ToString());
+                    u.id = int.Parse(dt.Rows[0]["id"].ToString());
                 }
             }
             catch(Exception ex)
