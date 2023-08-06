@@ -231,5 +231,35 @@ namespace AnyStore.DAL
             return dt;
         }
         #endregion
+
+        #region Getting user id from username
+        public userBLL GetIDFromUsername(string username)
+        {
+            userBLL u=new userBLL();
+            SqlConnection con = new SqlConnection(myConnection);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select id From tbl_users Where username='" + username + "'";
+                SqlDataAdapter adapter=new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    u.id = int.Parse(dt.Rows[0].ToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return u;
+        }
+        #endregion
     }
 }
