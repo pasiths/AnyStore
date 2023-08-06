@@ -19,14 +19,20 @@ namespace AnyStore
             InitializeComponent();
         }
 
+        //Set a public static method specify whether the from is purchase or sales 
+        public static string transactionType;
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //set value on transactionTYpe static method
+            transactionType = "Purchase";
             frmPurchaseAndSales purchase=new frmPurchaseAndSales();
             purchase.Show();
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //set value on transactionTYpe static method
+            transactionType = "Sales";
             frmPurchaseAndSales sales = new frmPurchaseAndSales();
             sales.Show();
         }
