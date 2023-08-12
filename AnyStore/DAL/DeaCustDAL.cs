@@ -183,5 +183,37 @@ namespace AnyStore.DAL
             return dt;
         }
         #endregion
+
+        #region Method To search dealer or customer for transaction module
+        public DeaCusBLL SearchDealerCustomerForTransaction(string keyword)
+        {
+            DeaCusBLL dc = new DeaCusBLL();
+            SqlConnection con = new SqlConnection(myconnection);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select name, email, contact, address from tbl_dea_cust Where id Like '%" + keyword + "%' Or name Like '%" + keyword + "%' ";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dc.name = dt.Rows[0]["name"].ToString();
+                    dc.email = dt.Rows[0]["email"].ToString();
+                    dc.contact = dt.Rows[0]["contact"].ToString();
+                    dc.address = dt.Rows[0]["address"].ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dc;
+        }
+        #endregion
     }
 }

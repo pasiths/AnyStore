@@ -33,7 +33,7 @@ namespace AnyStore.UI
             string keyword = txtProductSearch.Text;
 
             //Check if we have value to txtProductSearch or not
-            if (keyword == null)
+            if (keyword == null || keyword=="")
             {
                 txtProductName.Clear();
                 txtInventory.Clear();
@@ -56,7 +56,7 @@ namespace AnyStore.UI
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword=txtSearch.Text;
-            if (keyword == null)
+            if (keyword == null || keyword=="")
             {
                 txtName.Clear();
                 txtEmail.Clear();
@@ -64,6 +64,12 @@ namespace AnyStore.UI
                 txtAddress.Clear();
                 return;
             }
+
+            DeaCusBLL dc = dcDAL.SearchDealerCustomerForTransaction(keyword);
+            txtName.Text = dc.name;
+            txtEmail.Text = dc.email;
+            txtContact.Text = dc.contact;
+            txtAddress.Text = dc.address;
         }
     }
 }
