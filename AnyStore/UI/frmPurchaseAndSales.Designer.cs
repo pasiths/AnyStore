@@ -32,11 +32,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dvgAddedProducts = new System.Windows.Forms.DataGridView();
             this.lblDVGTtitlt = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtProductSearch = new System.Windows.Forms.TextBox();
-            this.txtProductName = new System.Windows.Forms.TextBox();
-            this.txtRate = new System.Windows.Forms.TextBox();
-            this.txtQty = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtReturnAmount = new System.Windows.Forms.TextBox();
@@ -52,10 +47,8 @@
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.lblCalculationDetails = new System.Windows.Forms.Label();
-            this.txtInventory = new System.Windows.Forms.TextBox();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.lblRate = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.lblTop = new System.Windows.Forms.Label();
             this.pnlDeaCust = new System.Windows.Forms.Panel();
             this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
@@ -71,8 +64,15 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblSearch = new System.Windows.Forms.Label();
             this.lblDeaCustTitle = new System.Windows.Forms.Label();
-            this.lblQty = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtProductSearch = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtRate = new System.Windows.Forms.TextBox();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.txtInventory = new System.Windows.Forms.TextBox();
+            this.lblRate = new System.Windows.Forms.Label();
+            this.lblQty = new System.Windows.Forms.Label();
             this.lblInventory = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblProductSearch = new System.Windows.Forms.Label();
@@ -81,8 +81,8 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAddedProducts)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.pnlDeaCust.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -126,51 +126,6 @@
             this.lblDVGTtitlt.Size = new System.Drawing.Size(100, 17);
             this.lblDVGTtitlt.TabIndex = 1;
             this.lblDVGTtitlt.Text = "Added Product";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(1084, 20);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 38);
-            this.btnAdd.TabIndex = 13;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // txtProductSearch
-            // 
-            this.txtProductSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductSearch.Location = new System.Drawing.Point(66, 27);
-            this.txtProductSearch.Name = "txtProductSearch";
-            this.txtProductSearch.Size = new System.Drawing.Size(153, 25);
-            this.txtProductSearch.TabIndex = 12;
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(281, 27);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(153, 25);
-            this.txtProductName.TabIndex = 11;
-            // 
-            // txtRate
-            // 
-            this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.Location = new System.Drawing.Point(718, 27);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(153, 25);
-            this.txtRate.TabIndex = 10;
-            // 
-            // txtQty
-            // 
-            this.txtQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.Location = new System.Drawing.Point(925, 27);
-            this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(153, 25);
-            this.txtQty.TabIndex = 9;
             // 
             // panel4
             // 
@@ -327,35 +282,6 @@
             this.lblCalculationDetails.TabIndex = 2;
             this.lblCalculationDetails.Text = "Calculation Details";
             // 
-            // txtInventory
-            // 
-            this.txtInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInventory.Location = new System.Drawing.Point(515, 27);
-            this.txtInventory.Name = "txtInventory";
-            this.txtInventory.Size = new System.Drawing.Size(153, 25);
-            this.txtInventory.TabIndex = 8;
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBoxClose.Image = global::AnyStore.Properties.Resources.Close_red;
-            this.pictureBoxClose.Location = new System.Drawing.Point(1194, 0);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(40, 40);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxClose.TabIndex = 1;
-            this.pictureBoxClose.TabStop = false;
-            // 
-            // lblRate
-            // 
-            this.lblRate.AutoSize = true;
-            this.lblRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRate.Location = new System.Drawing.Point(674, 31);
-            this.lblRate.Name = "lblRate";
-            this.lblRate.Size = new System.Drawing.Size(42, 17);
-            this.lblRate.TabIndex = 6;
-            this.lblRate.Text = "Rate:-";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -367,15 +293,26 @@
             this.panel2.Size = new System.Drawing.Size(1234, 40);
             this.panel2.TabIndex = 61;
             // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBoxClose.Image = global::AnyStore.Properties.Resources.Close_red;
+            this.pictureBoxClose.Location = new System.Drawing.Point(1194, 0);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxClose.TabIndex = 1;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
+            // 
             // lblTop
             // 
             this.lblTop.AutoSize = true;
             this.lblTop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTop.Location = new System.Drawing.Point(540, 10);
             this.lblTop.Name = "lblTop";
-            this.lblTop.Size = new System.Drawing.Size(155, 21);
+            this.lblTop.Size = new System.Drawing.Size(0, 21);
             this.lblTop.TabIndex = 0;
-            this.lblTop.Text = "Purchase and Sales";
             // 
             // pnlDeaCust
             // 
@@ -444,6 +381,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(189, 25);
             this.txtSearch.TabIndex = 7;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lblBillDate
             // 
@@ -515,16 +453,6 @@
             this.lblDeaCustTitle.TabIndex = 0;
             this.lblDeaCustTitle.Text = "Dealer and customer Details";
             // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQty.Location = new System.Drawing.Point(879, 31);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(43, 17);
-            this.lblQty.TabIndex = 5;
-            this.lblQty.Text = "Qty. :-";
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.btnAdd);
@@ -543,6 +471,80 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1183, 70);
             this.panel5.TabIndex = 63;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(1084, 20);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(91, 38);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // txtProductSearch
+            // 
+            this.txtProductSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductSearch.Location = new System.Drawing.Point(66, 27);
+            this.txtProductSearch.Name = "txtProductSearch";
+            this.txtProductSearch.Size = new System.Drawing.Size(153, 25);
+            this.txtProductSearch.TabIndex = 12;
+            this.txtProductSearch.TextChanged += new System.EventHandler(this.txtProductSearch_TextChanged);
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Location = new System.Drawing.Point(281, 27);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(153, 25);
+            this.txtProductName.TabIndex = 11;
+            // 
+            // txtRate
+            // 
+            this.txtRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRate.Location = new System.Drawing.Point(718, 27);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Size = new System.Drawing.Size(153, 25);
+            this.txtRate.TabIndex = 10;
+            // 
+            // txtQty
+            // 
+            this.txtQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty.Location = new System.Drawing.Point(925, 27);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(153, 25);
+            this.txtQty.TabIndex = 9;
+            // 
+            // txtInventory
+            // 
+            this.txtInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInventory.Location = new System.Drawing.Point(515, 27);
+            this.txtInventory.Name = "txtInventory";
+            this.txtInventory.Size = new System.Drawing.Size(153, 25);
+            this.txtInventory.TabIndex = 8;
+            // 
+            // lblRate
+            // 
+            this.lblRate.AutoSize = true;
+            this.lblRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRate.Location = new System.Drawing.Point(674, 31);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(42, 17);
+            this.lblRate.TabIndex = 6;
+            this.lblRate.Text = "Rate:-";
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQty.Location = new System.Drawing.Point(879, 31);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(43, 17);
+            this.lblQty.TabIndex = 5;
+            this.lblQty.Text = "Qty. :-";
             // 
             // lblInventory
             // 
@@ -601,9 +603,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvgAddedProducts)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.pnlDeaCust.ResumeLayout(false);
             this.pnlDeaCust.PerformLayout();
             this.panel5.ResumeLayout(false);
