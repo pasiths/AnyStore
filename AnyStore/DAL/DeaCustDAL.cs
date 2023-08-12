@@ -204,6 +204,40 @@ namespace AnyStore.DAL
                     dc.address = dt.Rows[0]["address"].ToString();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dc;
+        }
+        #endregion
+
+        #region Method to get id of the dealer or customer based on name
+        public DeaCusBLL GetDeaCustIDFromName(string Name)
+        {
+            //First crate an object of deacust BLL and return it
+            DeaCusBLL dc = new DeaCusBLL();
+
+            //Sql Connection here
+            SqlConnection con = new SqlConnection(myconnection);
+
+            //Data Table to hold the data temporarily
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select id From tbl_dea_cust Where name='" + Name + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dc.id = int.Parse(dt.Rows[0]["id"].ToString());
+                }
+            }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -212,6 +246,7 @@ namespace AnyStore.DAL
             {
                 con.Close();
             }
+
             return dc;
         }
         #endregion

@@ -29,7 +29,8 @@ namespace AnyStore.DAL
             SqlConnection con=new SqlConnection(myconnection);
             try
             {
-                string query = "Insert Into tbl_transactions(type,dea_cust_id,grandTotal,transaction_date,tax,discount,added_by) Values(@type,@dea_cust_id,@grandTotal,@transaction_date,@tax,@discount,@added_by)";
+                string query = "Insert Into tbl_transactions(type,dea_cust_id,grandTotal,transaction_date,tax,discount,added_by) Values(@type,@dea_cust_id,@grandTotal,@transaction_date,@tax,@discount,@added_by); Select @@IDENTITY;";
+                con.Open();
                 SqlCommand cmd=new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@type", t.type);
                 cmd.Parameters.AddWithValue("@dea_cust_id", t.dea_cust_id);

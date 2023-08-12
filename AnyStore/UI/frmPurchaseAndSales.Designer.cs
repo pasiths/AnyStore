@@ -30,7 +30,7 @@
         {
             this.pnlPurchaseAndSales = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dvgAddedProducts = new System.Windows.Forms.DataGridView();
+            this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.lblDVGTtitlt = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             this.lblProductTitle = new System.Windows.Forms.Label();
             this.pnlPurchaseAndSales.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgAddedProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
@@ -102,20 +102,20 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dvgAddedProducts);
+            this.panel3.Controls.Add(this.dgvAddedProducts);
             this.panel3.Controls.Add(this.lblDVGTtitlt);
             this.panel3.Location = new System.Drawing.Point(25, 238);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(785, 347);
             this.panel3.TabIndex = 64;
             // 
-            // dvgAddedProducts
+            // dgvAddedProducts
             // 
-            this.dvgAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgAddedProducts.Location = new System.Drawing.Point(10, 30);
-            this.dvgAddedProducts.Name = "dvgAddedProducts";
-            this.dvgAddedProducts.Size = new System.Drawing.Size(772, 314);
-            this.dvgAddedProducts.TabIndex = 2;
+            this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddedProducts.Location = new System.Drawing.Point(10, 30);
+            this.dgvAddedProducts.Name = "dgvAddedProducts";
+            this.dgvAddedProducts.Size = new System.Drawing.Size(772, 314);
+            this.dgvAddedProducts.TabIndex = 2;
             // 
             // lblDVGTtitlt
             // 
@@ -161,6 +161,7 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtReturnAmount
             // 
@@ -189,6 +190,7 @@
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.Size = new System.Drawing.Size(278, 25);
             this.txtPaidAmount.TabIndex = 18;
+            this.txtPaidAmount.TextChanged += new System.EventHandler(this.txtPaidAmount_TextChanged);
             // 
             // lblPaidAmount
             // 
@@ -225,6 +227,7 @@
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(278, 25);
             this.txtVAT.TabIndex = 14;
+            this.txtVAT.TextChanged += new System.EventHandler(this.txtVAT_TextChanged);
             // 
             // lblVAT
             // 
@@ -243,6 +246,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(278, 25);
             this.txtDiscount.TabIndex = 12;
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // lblDiscount
             // 
@@ -261,6 +265,7 @@
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.Size = new System.Drawing.Size(278, 25);
             this.txtSubTotal.TabIndex = 10;
+            this.txtSubTotal.Text = "0";
             // 
             // lblSubTotal
             // 
@@ -484,6 +489,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtProductSearch
             // 
@@ -597,10 +603,11 @@
             this.Name = "frmPurchaseAndSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase and Sales";
+            this.Load += new System.EventHandler(this.frmPurchaseAndSales_Load);
             this.pnlPurchaseAndSales.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgAddedProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -618,7 +625,7 @@
 
         private System.Windows.Forms.Panel pnlPurchaseAndSales;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dvgAddedProducts;
+        private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.Label lblDVGTtitlt;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnSave;
