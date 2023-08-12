@@ -222,5 +222,40 @@ namespace AnyStore.DAL
             return p;
         }
         #endregion
+
+        #region Method to get product id based on product name
+        public productsBLL GetProductIDFromName(string ProductName)
+        {
+            //First crate an object of deacust BLL and return it
+            productsBLL p = new productsBLL();
+
+            //Sql Connection here
+            SqlConnection con = new SqlConnection(myconnection);
+
+            //Data Table to hold the data temporarily
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select id From tbl_products Where name='" + ProductName + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                con.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    p.id = int.Parse(dt.Rows[0]["id"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return p;
+        }
+        #endregion
     }
 }
