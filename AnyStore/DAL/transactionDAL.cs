@@ -63,11 +63,62 @@ namespace AnyStore.DAL
         #endregion
 
         #region Update data in database
-        
+
         #endregion
 
         #region Delete Data in Database
-        
+
+        #endregion
+
+        #region Method to display all the transaction
+        public DataTable DisplayAllTransactions()
+        {
+            SqlConnection con = new SqlConnection(myconnection);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select * from tbl_transactions";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return dt;
+        }
+        #endregion
+
+        #region method to display transaction based on transaction type
+        public DataTable DisplayTransactionByType(string type)
+        {
+            SqlConnection con = new SqlConnection(myconnection);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select * from tbl_transactions Where type='" + type + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
         #endregion
     }
 }

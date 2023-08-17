@@ -53,5 +53,11 @@ namespace AnyStore
         {
             lblLoggedInUser.Text = frmLogin.loggedIn;
         }
+
+        private void transacToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTransaction transaction = new frmTransaction();
+            transaction.Show();
+        }
     }
 }
