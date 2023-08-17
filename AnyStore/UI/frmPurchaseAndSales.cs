@@ -178,89 +178,111 @@ namespace AnyStore.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //Get the value from purchaseSales form here
-            transctionsBLL transactions = new transctionsBLL();
-            transactions.type = lblTop.Text;
-
-            //Get the id of dealer or customer here
-            //Lets get name of the dealer or customer first
-            string deaCustName = txtName.Text;
-            DeaCusBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
-
-            transactions.dea_cust_id = dc.id;
-            transactions.grandTotal = decimal.Parse(txtGrandTotal.Text);
-            transactions.transaction_date = DateTime.Now;
-            transactions.tax = Math.Round(decimal.Parse(txtVAT.Text),2);
-            transactions.discount = decimal.Parse(txtDiscount.Text);
-
-            string username = frmLogin.loggedIn;
-            userBLL u = uDAL.GetIDFromUsername(username);
-
-            transactions.added_by = u.id;
-            transactions.transactionDetails = transactionDT;
-
-            bool success = false;
-
-            using (TransactionScope scope = new TransactionScope())
+            try
             {
-                int transactionID = -1;
+                //Get the value from purchaseSales form here
+                transctionsBLL transactions = new transctionsBLL();
 
-                //Create a boolean value and insert transaction
-                bool w = tDAL.Insert_Transaction(transactions, out transactionID);
+                transactions.type = lblTop.Text;
 
-                //Use for loop to insert transaction details
-                for(int i = 0; i < transactionDT.Rows.Count; i++)
+                //Get the id of dealer or customer here
+                //Lets get name of the dealer or customer first
+                string deaCustName = txtName.Text;
+                DeaCusBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
+
+                transactions.dea_cust_id = dc.id;
+                transactions.grandTotal = decimal.Parse(txtGrandTotal.Text);
+                transactions.transaction_date = DateTime.Now;
+                transactions.tax = Math.Round(decimal.Parse(txtVAT.Text), 2);
+                transactions.discount = decimal.Parse(txtDiscount.Text);
+
+                string username = frmLogin.loggedIn;
+                userBLL u = uDAL.GetIDFromUsername(username);
+
+                transactions.added_by = u.id;
+                transactions.transactionDetails = transactionDT;
+
+                bool success = false;
+
+                using (TransactionScope scope = new TransactionScope())
                 {
-                    //Get all the details of the product
-                    transactionDetailsBLL transactionDetails = new transactionDetailsBLL();
-                    //Get the project name and convert it to id
-                    string productName = transactionDT.Rows[i][0].ToString();
-                    productsBLL p = pDAL.GetProductIDFromName(productName);
+                    int transactionID = -1;
 
-                    transactionDetails.product_id = p.id;
-                    transactionDetails.rate = decimal.Parse(transactionDT.Rows[i][1].ToString());
-                    transactionDetails.qty = decimal.Parse(transactionDT.Rows[i][2].ToString());
-                    transactionDetails.total = Math.Round(decimal.Parse(transactionDT.Rows[i][3].ToString()),2);
-                    transactionDetails.dea_cust_id = dc.id;
-                    transactionDetails.added_date = DateTime.Now;
-                    transactionDetails.added_by = u.id;
+                    //Create a boolean value and insert transaction
+                    bool w = tDAL.Insert_Transaction(transactions, out transactionID);
 
-                    //Insert Transaction Details inside the database
-                    bool y = tdDAL.InsertTransactionDetails(transactionDetails);
-                    success = w && y;
+                    //Use for loop to insert transaction details
+                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    {
+                        //Get all the details of the product
+                        transactionDetailsBLL transactionDetails = new transactionDetailsBLL();
+                        //Get the project name and convert it to id
+                        string productName = transactionDT.Rows[i][0].ToString();
+                        productsBLL p = pDAL.GetProductIDFromName(productName);
+
+                        transactionDetails.product_id = p.id;
+                        transactionDetails.rate = decimal.Parse(transactionDT.Rows[i][1].ToString());
+                        transactionDetails.qty = decimal.Parse(transactionDT.Rows[i][2].ToString());
+                        transactionDetails.total = Math.Round(decimal.Parse(transactionDT.Rows[i][3].ToString()), 2);
+                        transactionDetails.dea_cust_id = dc.id;
+                        transactionDetails.added_date = DateTime.Now;
+                        transactionDetails.added_by = u.id;
+
+                        //Here Increase or Decrease Product Quantity based on Purchase or Sales
+                        string transactionType = lblTop.Text;
+
+                        //Lets check whether we are on purchase or sales
+                        bool x = false;
+                        if (transactionType == "Purchase")
+                        {
+                            x = pDAL.IncreaseProduct(transactionDetails.product_id, transactionDetails.qty);
+                        }
+                        else if (transactionType == "Sales")
+                        {
+                            x = pDAL.DecreaseProduct(transactionDetails.product_id, transactionDetails.qty);
+                        }
+
+                        //Insert Transaction Details inside the database
+                        bool y = tdDAL.InsertTransactionDetails(transactionDetails);
+                        success = w && x && y;
+                    }
+                    if (success == true)
+                    {
+                        scope.Complete();
+                        MessageBox.Show("Transaction Completed Sucessfully");
+
+                        dgvAddedProducts.DataSource = null;
+                        dgvAddedProducts.Rows.Clear();
+                        dgvAddedProducts.Columns.Clear();
+                        dgvAddedProducts.Refresh();
+
+
+                        txtSearch.Clear();
+                        txtName.Clear();
+                        txtEmail.Clear();
+                        txtContact.Clear();
+                        txtAddress.Clear();
+                        txtProductSearch.Clear();
+                        txtProductName.Clear();
+                        txtInventory.Clear();
+                        txtRate.Clear();
+                        txtQty.Clear();
+                        txtSubTotal.Text = "0.0";
+                        txtDiscount.Text = "0.0";
+                        txtVAT.Text = "0.0";
+                        txtGrandTotal.Text = "0.0";
+                        txtPaidAmount.Text = "0.0";
+                        txtReturnAmount.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Transaction Failed");
+                    }
                 }
-                if (success == true)
-                {
-                    scope.Complete();
-                    MessageBox.Show("Transaction Completed Sucessfully");
-
-                    dgvAddedProducts.DataSource = null;
-                    dgvAddedProducts.Rows.Clear();
-                    dgvAddedProducts.Columns.Clear();
-                    dgvAddedProducts.Refresh();
-
-
-                    txtSearch.Clear();
-                    txtName.Clear();
-                    txtEmail.Clear();
-                    txtContact.Clear();
-                    txtAddress.Clear();
-                    txtProductSearch.Clear();
-                    txtProductName.Clear();
-                    txtInventory.Clear();
-                    txtRate.Clear();
-                    txtQty.Clear();
-                    txtSubTotal.Text="0.0";
-                    txtDiscount.Text = "0.0";
-                    txtVAT.Text = "0.0";
-                    txtGrandTotal.Text = "0.0";
-                    txtPaidAmount.Text = "0.0";
-                    txtReturnAmount.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Transaction Failed");
-                } 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

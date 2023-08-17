@@ -259,14 +259,22 @@ namespace AnyStore.DAL
         #endregion
 
         #region Method to get current quantity from the database based on product ID
-        public decimal GetProductQty(int ProductID)
+        public decimal GetProductQty(int productID)
         {
             SqlConnection con = new SqlConnection(myconnection);
             decimal qty = 0;
             DataTable dt = new DataTable();
             try
             {
-
+                string sql = "Select qty From tbl_products Where id=" + productID;
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    qty = decimal.Parse(dt.Rows[0]["qty"].ToString());
+                }
             }
             catch(Exception ex)
             {
@@ -274,9 +282,88 @@ namespace AnyStore.DAL
             }
             finally
             {
-                con.Open();
+                con.Close();
             }
             return qty;
+        }
+        #endregion
+
+        #region method to update quantity
+        public bool UpdateQuantity(int ProductID, decimal Qty)
+        {
+            bool isSuccess = false;
+            SqlConnection con = new SqlConnection(myconnection);
+            try
+            {
+                string query = "Update tbl_products Set qty=@qty Where id=@id";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@qty", Qty);
+                cmd.Parameters.AddWithValue("@id", ProductID);
+
+                con.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { con.Close(); }
+            return isSuccess;
+        }
+        #endregion
+
+        #region method to increse product
+        public bool IncreaseProduct(int ProductID,decimal IncreaseQty)
+        {
+            bool success = false;
+            SqlConnection con = new SqlConnection(myconnection);
+            try
+            {
+                decimal currentQty=GetProductQty(ProductID);
+                decimal NewQty = currentQty + IncreaseQty;
+                success=UpdateQuantity(ProductID, NewQty);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return success;
+        }
+        #endregion
+
+        #region method to decrease product
+        public bool DecreaseProduct(int ProductID,decimal Qty)
+        {
+            bool success = false;
+            SqlConnection con = new SqlConnection(myconnection);
+            try
+            {
+                decimal currentQty = GetProductQty(ProductID);
+                decimal NewQty =currentQty - Qty;
+                success = UpdateQuantity(ProductID, NewQty);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return success;
         }
         #endregion
     }
