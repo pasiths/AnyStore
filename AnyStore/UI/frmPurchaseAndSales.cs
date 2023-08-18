@@ -1,5 +1,6 @@
 ﻿using AnyStore.BLL;
 using AnyStore.DAL;
+using DGVPrinterHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -249,6 +250,21 @@ namespace AnyStore.UI
                     if (success == true)
                     {
                         scope.Complete();
+
+                        //Code to print Bil
+                        DGVPrinter printer = new DGVPrinter();
+
+                        printer.Title = "\r\n\r\n\r\n ANYSTORE PVT. LTD. \r\n\r\n";
+                        printer.SubTitle = "Gampaha, Sri Lanka \r\n Phone: 011-045XXXX \r\n\r\n";
+                        printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                        printer.PageNumbers = true;
+                        printer.PageNumberInHeader = false;
+                        printer.PorportionalColumns = true;
+                        printer.HeaderCellAlignment = StringAlignment.Near;
+                        printer.Footer = "Discount: " + txtDiscount.Text + "% \r\n" + "VAT: " + txtVAT.Text + "% \r\n" + "Grand Total: " + txtGrandTotal.Text + "\r\n\r\n" + "Thank you for doing business with us.";
+                        printer.FooterSpacing = 15;
+                        printer.PrintDataGridView(dgvAddedProducts);
+
                         MessageBox.Show("Transaction Completed Sucessfully");
 
                         dgvAddedProducts.DataSource = null;
