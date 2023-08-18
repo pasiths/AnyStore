@@ -366,5 +366,33 @@ namespace AnyStore.DAL
             return success;
         }
         #endregion
+
+        #region display products based on categories
+        public DataTable DisplayProductsBYCategory(string category)
+        {
+            SqlConnection con = new SqlConnection(myconnection);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string sql = "Select * From tbl_products Where category='" + category + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                con.Open();
+                adapter.Fill(dt);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return dt;
+        }
+        #endregion
     }
 }
